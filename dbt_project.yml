@@ -34,3 +34,5 @@ models:
   Analytics:
     # Applies to all files under models/example/
     +materialized: table
+    stage:
+      +schema: bl_integration
