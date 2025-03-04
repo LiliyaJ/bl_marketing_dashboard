@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: bl_marketing_dashboard
     database: liliyaj-projects
-    schema: bl_integration
+    schema: bl_raw
     tables:
       - name: leases
       - name: sessions
