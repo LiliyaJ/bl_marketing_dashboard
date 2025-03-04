@@ -1,7 +1,7 @@
 with 
     source as (
 
-        select * 
+        select
         
             session_date,
             user_id,
