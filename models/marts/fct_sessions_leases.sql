@@ -12,6 +12,8 @@ with sessions as (
 
 select  
     sessions.*,
+    case when user_visits_seq = max_visits then sessions_per_cj else 0 end sessions,
+    case when user_visits_seq = max_visits then users_per_cj else 0 end users,
     leases.bike_brand,
     leases.bike_type,
     leases.state,
