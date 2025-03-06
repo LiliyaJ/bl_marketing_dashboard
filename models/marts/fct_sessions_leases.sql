@@ -17,6 +17,7 @@ select
     contracts_per_cj * normalized_weight_linear contracts_linear_attr,
     contracts_per_cj * normalized_weight_decay contracts_decay_attr,
     case when assisted_channel then 1 else 0 end assisted_conversions,
+    case when user_visits_seq = max_visits and contracts_per_cj = 0 then 1 else 0 end drop_off,
     
     leases.bike_brand,
     leases.bike_type,
