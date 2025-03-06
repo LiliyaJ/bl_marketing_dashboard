@@ -16,6 +16,7 @@ select
     case when user_visits_seq = max_visits then users_per_cj else 0 end users,
     contracts_per_cj * normalized_weight_linear contracts_linear_attr,
     contracts_per_cj * normalized_weight_decay contracts_decay_attr,
+    case when assisted_channel then 1 else 0 end assisted_conversions,
     leases.bike_brand,
     leases.bike_type,
     leases.state,
