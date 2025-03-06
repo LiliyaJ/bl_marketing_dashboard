@@ -11,6 +11,8 @@ with
             session_date,
             user_id,
             channel,
+            channel_type,
+            costs,
             device,
             leasing_contract_id,
 
@@ -18,20 +20,11 @@ with
             row_number() over(
             partition by user_id
             order by session_date, user_id
-            ) user_visits_seq
+            ) user_visits_seq,
 
-            -- count costs per user, oper date, per channel, per device, per contract
-           -- sum(costs) costs,
-
-            -- count number of sessions per user, oper date, per channel, per device, per contract
-           -- count(distinct session_id) num_of_sessions,
-
-            -- count contracts
-           -- countif(leasing_contract_id is not null) contracts
+            case when leasing_contract_id is not null then 1 else 0 end contracts 
         
         from source
-       -- group by session_date, user_id, 
-       --         channel, device, leasing_contract_id
     )
 
 select * from transformed
