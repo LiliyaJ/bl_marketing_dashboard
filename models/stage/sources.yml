@@ -6,4 +6,52 @@ sources:
     schema: bl_raw
     tables:
       - name: leases
+        description: Details of all leases done via Bikeleasing
+        columns:
+          - name: leasing_contract_id
+            description: Unique identifier for each lease
+          - name: account_id
+            description: ID of account which the lease belongs to
+          - name: request_date
+            description: The date the leasing request was made
+          - name: contract_start_date
+            description: The date the leasing contract started
+          - name: contract_end_date
+            description: The date the leasing contract ended
+          - name: state
+            description: The current state of the contract (e.g., Active, Inactive)
+          - name: status
+            description: Status details of the contract (e.g., Approved, Cancelled).
+          - name: bike_type
+            description: The type of bike leased
+          - name: bike_brand
+            description: The brand of the leased bike
+          - name: saleprice_gross
+            description: Sale price of the leased bicycle (gross)
+          - name: insurance_type
+            description: The insurance selected for the bike
+
       - name: sessions
+        description: All sessions visiting Bikeleasing
+        columns:
+          - name: user_id
+            description: Unique identifier for a user.
+          - name: session_id
+            description: Unique identifier for each session
+          - name: session_date
+            description: Date when this session was started
+          - name: channel
+            description: Referrer marketing channel
+          - name: channel_type
+            description: Type of channel. (paid, organic, retention)
+          - name: costs
+            description: Costs caused to achieve this session in €
+          - name: leasing_contract_id
+            description: Unique identifier for each converted lease
+          - name: device
+            description: Device on which this session was opened. (Desktop/Mobile)
+
+          - name: user_visits_seq
+            description: added column for identifiing the step in customer journey over user_id ordered by date and user_id
+          - name: contracts
+            description: count of leasing contracts per leasing_contract_id

@@ -1,8 +1,8 @@
 version: 2
 
 models:
-  - name: int_bl__sessions
-    description: This file prepares sessions for the output file making needed intermediate transformations.
+  - name: fct_sessions_leases
+    description: final file to visualise KPIs for the marketing dashboard
     columns:
       - name: user_id
         description: Unique identifier for a user.
@@ -52,3 +52,18 @@ models:
         description: Indicates whether a touchpoint contributed to a conversion but was not the last interaction
       - name: normalized_weight_linear
         description: represents the evenly distributed attribution weight for each touchpoint in a customer journey
+
+      - name: sessions
+        description: counts sessions
+      - name: users
+        description: counts users using first_touch attribution
+      - name: contracts_linear_attr
+        description: counts contracts according to linear attribution model (all channels in a customer journey gets the same credit)
+      - name: contracts_decay_attr
+        desription: counts contracts according to decay attribution model (assigns more credit to later touchpoints)
+      - name: assisted_conversions
+        description: counts touchpoints leading to a conversion but was not the conversion touchpoint
+      - name: saleprice_gross
+        description: sales price for a bike.
+        from: leases
+        on: leasing_contract_id

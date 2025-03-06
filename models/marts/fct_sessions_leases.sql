@@ -13,7 +13,7 @@ with sessions as (
 select  
     sessions.*,
     case when user_visits_seq = max_visits then sessions_per_cj else 0 end sessions,
-    case when last_touch then users_per_cj else 0 end users,
+    case when first_touch then users_per_cj else 0 end users,
     contracts_per_cj * normalized_weight_linear contracts_linear_attr,
     contracts_per_cj * normalized_weight_decay contracts_decay_attr,
     case when assisted_channel then 1 else 0 end assisted_conversions,
