@@ -36,7 +36,8 @@ with source as (
         case when user_visits_seq = max_visits then true else false end last_touch,
         case when user_visits_seq = 1 and max_visits > 1 then true else false end first_touch,
         case when user_visits_seq = 1 and max_visits = 1 then true else false end single_touch,
-        raw_weight_decay / total_weight_decay normalized_weight_decay
+        raw_weight_decay / total_weight_decay normalized_weight_decay,
+        1 / max_visits normalized_weight_linear
 
     from source join decay on source.user_id = decay.user_id
 
