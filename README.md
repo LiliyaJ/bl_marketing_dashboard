@@ -1,5 +1,1 @@
-Welcome to your new dbt project!
-
-### Using the starter project
-
-### Resources:
+# Marketing ELT Pipeline: Evaluating Channel Performance with dbt
